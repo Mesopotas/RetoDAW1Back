@@ -58,6 +58,10 @@ public class Controller extends HttpServlet {
                 out.print(new DetailAction().execute(request, response, arrayAction[1]));
                 break;
             }
+            case "EMPLOYEE": {
+                out.print(new EmployeeAction().execute(request, response, arrayAction[1]));
+                break;
+            }
 
             default:
                 System.out.println(arrayAction[0]);
