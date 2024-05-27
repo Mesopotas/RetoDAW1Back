@@ -10,15 +10,13 @@ public class Client {
 
     public int Id_cliente;
     public String Usuario;
-    public int Contrasena;
-    public String Correo;
+    public String Contrasena;
 
 
-    public Client(int id_cliente, String usuario, int contrasena, String correo) {
+    public Client(int id_cliente, String usuario, String contrasena, String correo) {
         Id_cliente = id_cliente;
         Usuario = usuario;
-        Contrasena = Contrasena;
-        Correo = correo;
+        Contrasena = contrasena;
     }
 
     public Client(){
@@ -42,21 +40,14 @@ public class Client {
         Usuario = usuario;
     }
 
-    public int getContrasena() {
+    public String getContrasena() {
         return Contrasena;
     }
 
-    public void setContrasena(int contrasena) {
+    public void setContrasena(String contrasena) {
         Contrasena = contrasena;
     }
 
-    public String getCorreo() {
-        return Correo;
-    }
-
-    public void setCorreo(String correo) {
-        Correo = correo;
-    }
 
 
     @Override
@@ -65,7 +56,6 @@ public class Client {
                 "Id_cliente=" + Id_cliente +
                 ", Usuario='" + Usuario + '\'' +
                 ", Contraseña=" + Contrasena +
-                ", Correo='" + Correo + '\'' +
                 '}';
     }
 
@@ -75,7 +65,6 @@ public class Client {
             resp+= "{" +
                     "'Id_Cliente':'" + client.getId_cliente() + "', "
                     + "'Usuario':'" + client.getUsuario() + "',"
-                    + "'Correo':'" + client.getCorreo() + "',"
                     + "'Contrasena':'" + client.getContrasena() + "',"
                     +"}";
             resp+=",";

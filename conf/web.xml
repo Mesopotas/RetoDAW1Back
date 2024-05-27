@@ -275,8 +275,8 @@
     </servlet>
 
 
-  <!-- NOTE: An SSI Filter is also available as an alternative SSI          -->
-  <!-- implementation. Use either the Servlet or the Filter but NOT both.   -->
+  <!-- NOTE: An SSI Filters is also available as an alternative SSI          -->
+  <!-- implementation. Use either the Servlet or the Filters but NOT both.   -->
   <!--                                                                      -->
   <!-- Server Side Includes processing servlet, which processes SSI         -->
   <!-- directives in HTML pages consistent with similar support in web      -->
@@ -458,10 +458,10 @@
 -->
 
 
-  <!-- ================== Built In Filter Definitions ===================== -->
+  <!-- ================== Built In Filters Definitions ===================== -->
 
-  <!-- A filter that sets various security related HTTP Response headers.   -->
-  <!-- This filter supports the following initialization parameters         -->
+  <!-- A Filters that sets various security related HTTP Response headers.   -->
+  <!-- This Filters supports the following initialization parameters         -->
   <!-- (default values are in square brackets):                             -->
   <!--                                                                      -->
   <!--   hstsEnabled         Should the HTTP Strict Transport Security      -->
@@ -493,53 +493,53 @@
   <!--                       Should the header that blocks content type     -->
   <!--                       sniffing be added to every response? [true]    -->
 <!--
-    <filter>
-        <filter-name>httpHeaderSecurity</filter-name>
-        <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+    <Filters>
+        <Filters-name>httpHeaderSecurity</Filters-name>
+        <Filters-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</Filters-class>
         <async-supported>true</async-supported>
-    </filter>
+    </Filters>
 -->
 
-  <!-- A filter that sets character encoding that is used to decode -->
+  <!-- A Filters that sets character encoding that is used to decode -->
   <!-- parameters in a POST request -->
 <!--
-    <filter>
-        <filter-name>setCharacterEncodingFilter</filter-name>
-        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <Filters>
+        <Filters-name>setCharacterEncodingFilter</Filters-name>
+        <Filters-class>org.apache.catalina.filters.SetCharacterEncodingFilter</Filters-class>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>
         </init-param>
         <async-supported>true</async-supported>
-    </filter>
+    </Filters>
 -->
 
-  <!-- A filter that triggers request parameters parsing and rejects the    -->
+  <!-- A Filters that triggers request parameters parsing and rejects the    -->
   <!-- request if some parameters were skipped because of parsing errors or -->
   <!-- request size limitations.                                            -->
 <!--
-    <filter>
-        <filter-name>failedRequestFilter</filter-name>
-        <filter-class>
+    <Filters>
+        <Filters-name>failedRequestFilter</Filters-name>
+        <Filters-class>
           org.apache.catalina.filters.FailedRequestFilter
-        </filter-class>
+        </Filters-class>
         <async-supported>true</async-supported>
-    </filter>
+    </Filters>
 -->
 
 
   <!-- NOTE: An SSI Servlet is also available as an alternative SSI         -->
-  <!-- implementation. Use either the Servlet or the Filter but NOT both.   -->
+  <!-- implementation. Use either the Servlet or the Filters but NOT both.   -->
   <!--                                                                      -->
-  <!-- Server Side Includes processing filter, which processes SSI          -->
+  <!-- Server Side Includes processing Filters, which processes SSI          -->
   <!-- directives in HTML pages consistent with similar support in web      -->
-  <!-- servers like Apache.  Traditionally, this filter is mapped to the    -->
+  <!-- servers like Apache.  Traditionally, this Filters is mapped to the    -->
   <!-- URL pattern "*.shtml", though it can be mapped to "*" as it will     -->
   <!-- selectively enable/disable SSI processing based on mime types. For   -->
   <!-- this to work you will need to uncomment the .shtml mime type         -->
   <!-- definition towards the bottom of this file.                          -->
   <!-- The contentType init param allows you to apply SSI processing to JSP -->
-  <!-- pages, JavaScript, or any other content you wish.  This filter       -->
+  <!-- pages, JavaScript, or any other content you wish.  This Filters       -->
   <!-- supports the following initialization parameters (default values are -->
   <!-- in square brackets):                                                 -->
   <!--                                                                      -->
@@ -561,11 +561,11 @@
   <!--   allowExec           Is use of the exec command enabled? [false]    -->
 
 <!--
-    <filter>
-        <filter-name>ssi</filter-name>
-        <filter-class>
+    <Filters>
+        <Filters-name>ssi</Filters-name>
+        <Filters-class>
           org.apache.catalina.ssi.SSIFilter
-        </filter-class>
+        </Filters-class>
         <init-param>
           <param-name>contentType</param-name>
           <param-value>text/x-server-parsed-html(;.*)?</param-value>
@@ -582,43 +582,43 @@
           <param-name>isVirtualWebappRelative</param-name>
           <param-value>false</param-value>
         </init-param>
-    </filter>
+    </Filters>
 -->
 
 
-  <!-- ==================== Built In Filter Mappings ====================== -->
+  <!-- ==================== Built In Filters Mappings ====================== -->
 
-  <!-- The mapping for the HTTP header security Filter -->
+  <!-- The mapping for the HTTP header security Filters -->
 <!--
-    <filter-mapping>
-        <filter-name>httpHeaderSecurity</filter-name>
+    <Filters-mapping>
+        <Filters-name>httpHeaderSecurity</Filters-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>
+    </Filters-mapping>
 -->
 
-  <!-- The mapping for the Set Character Encoding Filter -->
+  <!-- The mapping for the Set Character Encoding Filters -->
 <!--
-    <filter-mapping>
-        <filter-name>setCharacterEncodingFilter</filter-name>
+    <Filters-mapping>
+        <Filters-name>setCharacterEncodingFilter</Filters-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </Filters-mapping>
 -->
 
-  <!-- The mapping for the Failed Request Filter -->
+  <!-- The mapping for the Failed Request Filters -->
 <!--
-    <filter-mapping>
-        <filter-name>failedRequestFilter</filter-name>
+    <Filters-mapping>
+        <Filters-name>failedRequestFilter</Filters-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </Filters-mapping>
 -->
 
-  <!-- The mapping for the SSI Filter -->
+  <!-- The mapping for the SSI Filters -->
 <!--
-    <filter-mapping>
-        <filter-name>ssi</filter-name>
+    <Filters-mapping>
+        <Filters-name>ssi</Filters-name>
         <url-pattern>*.shtml</url-pattern>
-    </filter-mapping>
+    </Filters-mapping>
 -->
 
 

@@ -28,10 +28,7 @@ public class ClientDao implements IDao{
                 if (((Client)bean).getUsuario() != null) {
                     sql += " AND USER  is='" + ((Client)bean).getUsuario() + "'";
                 }
-                if (((Client)bean).getCorreo() != null) {
-                    sql += " AND CORREO is='" + ((Client)bean).getCorreo() + "'";
-                }
-                if (((Client)bean).getContrasena() != 0) {
+                if (((Client)bean).getContrasena() != null) {
                     sql += " AND CONTRASENA is='" + ((Client)bean).getContrasena() + "'";
                 }
             }
@@ -42,8 +39,7 @@ public class ClientDao implements IDao{
                 Client client = new Client();
                 client.setId_cliente(rs.getInt("ID_CLIENTE"));
                 client.setUsuario(rs.getString("USUARIO"));
-                client.setCorreo(rs.getString("CORREO"));
-                client.setContrasena(rs.getInt("CONTRASENA"));
+                client.setContrasena(rs.getString("CONTRASENA"));
                 clients.add(client);
             }
 
@@ -86,8 +82,7 @@ public class ClientDao implements IDao{
             String sql = SQL_ADD + "('"
                     + bean.getId_cliente() + "', '"
                     + bean.getUsuario() + "', '"
-                    + bean.getContrasena() + "', "
-                    + bean.getCorreo() + "');";
+                    + bean.getContrasena() + "');";
 
             resp = motor.executeUpdate(sql);
 
