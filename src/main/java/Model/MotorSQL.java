@@ -1,10 +1,6 @@
 package Model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class MotorSQL {
     /*Objetos necesarios para hablar con la BD*/
@@ -27,6 +23,23 @@ public class MotorSQL {
             Class.forName("oracle.jdbc.OracleDriver").newInstance();
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
             st = conn.createStatement();
+            // Do something with the Connection
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void conectStatement(){
+        try {
+            Class.forName("oracle.jdbc.OracleDriver").newInstance();
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
             // Do something with the Connection
         } catch (SQLException ex) {
             // handle any errors
@@ -68,6 +81,18 @@ public class MotorSQL {
 
     }
 
+    public int execute(PreparedStatement pst){
+        int resp = 0;
+        try {
+            resp = pst.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return resp;
+    }
+
+
+
     public void disconnect()
     {
         if (rs != null) {
@@ -89,4 +114,16 @@ public class MotorSQL {
         }
 
     }
+
+
+    public PreparedStatement prepareStatement(String sqlAdd) {
+        PreparedStatement st = null;
+        try {
+            st = this.conn.prepareStatement(sqlAdd);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return st;
+    }
+
 }

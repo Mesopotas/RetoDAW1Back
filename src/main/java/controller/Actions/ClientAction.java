@@ -34,12 +34,7 @@ public class ClientAction implements IAction{
                 break;
 
             case "UPDATE":
-                Client clientUp = new Client();
-                clientUp.setId_cliente(Integer.parseInt(request.getParameter("ID_CLIENTE")));
-                clientUp.setUsuario(request.getParameter("USUARIO"));
-                clientUp.setContrasena(request.getParameter("CONTRASENA"));
-
-                strReturn = update(clientUp);
+                    strReturn = update(request);
                 break;
 
             default:
@@ -72,11 +67,29 @@ public class ClientAction implements IAction{
         return "";
     }
 
-    String update(Client client){
-        MotorSQL motorSQL = new MotorSQL();
+    private String update(HttpServletRequest request) {
+        String id_cliente = request.getParameter("ID_CLIENTE");
+        String usuario = request.getParameter("USUARIO");
+        String contrasena = request.getParameter("CONTRASENA");
+
+
+
+        Client client = new Client();
+        client.setId_cliente(Integer.parseInt(id_cliente));
+        client.setUsuario(usuario);
+        client.setContrasena(contrasena);
+
         ClientDao clientDao = new ClientDao();
-        clientDao.update(client);
-        return "";
+        int Realizado = clientDao.update(client);
+
+        if (Realizado >= 0){
+            return "Ha ido mal";
+
+        }
+        else {
+            return "Ha ido bien";
+        }
+
     }
 
 
