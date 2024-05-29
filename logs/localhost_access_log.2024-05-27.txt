@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [27/May/2024:17:32:58 +0200] "GET /RetoDAW1ModeloAnton HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/May/2024:17:32:58 +0200] "GET /RetoDAW1ModeloAnton/ HTTP/1.1" 404 712
+0:0:0:0:0:0:0:1 - - [27/May/2024:17:33:19 +0200] "GET /RetoDAW1ModeloAnton HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/May/2024:17:33:19 +0200] "GET /RetoDAW1ModeloAnton/ HTTP/1.1" 404 712
+0:0:0:0:0:0:0:1 - - [27/May/2024:17:33:55 +0200] "GET /RetoDAW1ModeloAnton HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [27/May/2024:17:33:55 +0200] "GET /RetoDAW1ModeloAnton/ HTTP/1.1" 404 712
